@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to quote"), todo_path(@todo) %>
+
+  <div class="header">
+    <h1>Edit Task</h1>
+  </div>
+
+  <%= render "form", todo: @todo %>
+</main>
