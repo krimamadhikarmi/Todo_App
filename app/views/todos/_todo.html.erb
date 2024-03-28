@@ -1,7 +1,15 @@
-<div class="todo">
-  <%= link_to todo.task, todo_path(todo) %>
-  <div class="todo__actions">
-    <%= button_to "Delete",todo_path(todo),method: :delete,class: "btn btn--light" %>
-    <%= link_to "Edit",edit_todo_path(todo),class: "btn btn--light" %>
+<%= turbo_frame_tag todo do%>
+  <div class="todo flex justify-center">
+  <div class="rounded overflow-hidden shadow-lg w-3/6 bg-stone-200 mb-5">
+    <div class="px-6 py-8 h-full flex ">
+        <div class="font-bold text-xl mb-2"><%= link_to todo.task, todo_path(todo),data: { turbo_frame: "_top"}%></div>
+      </div>
+    </div>
+    <div class="todo__actions">
+        <div class="flex mt-10 ml-10">
+          <%= link_to "Edit ", edit_todo_path(todo), class: "btn mr-10" %>
+          <%= button_to "Delete", todo_path(todo), method: :delete, form: { data: { turbo_frame: "_top" }},class: "btn btn--light" %>
+        </div>
+    </div>
   </div>
-</div>
+<%end%>

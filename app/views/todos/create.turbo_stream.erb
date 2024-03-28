@@ -1,0 +1,5 @@
+<%= turbo_stream.append "todos", partial: "todo", locals: { todo: @todo } %>
+<%= turbo_stream.remove "form" %>
+<%= turbo_stream.append "main", partial: "form", locals: { todo: Todo.new } %>
+
+
